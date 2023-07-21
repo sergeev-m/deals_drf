@@ -1,5 +1,6 @@
-from rest_framework import serializers
+from django.conf import settings
 from django.core.validators import FileExtensionValidator
+from rest_framework import serializers
 
 from .models import Deal
 
@@ -15,8 +16,8 @@ class FileUploadSerializer(serializers.Serializer):
 
 
 class DealSerializer(serializers.ModelSerializer):
-    customer = serializers.CharField(source='customer.username')
-    item = serializers.CharField(source='item.name')
+    customer = serializers.CharField(max_length=settings.CUSTOMER_MAX_LENGTH)
+    item = serializers.CharField(max_length=settings.GEM_NAME_MAX_LENGTH)
 
     class Meta:
         model = Deal

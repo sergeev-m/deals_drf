@@ -11,7 +11,7 @@ DEBUG = os.getenv('DJANGO_DEBUG', False) == 'True'
 ALLOWED_HOSTS = os.getenv('DJANGO_ALLOWED_HOSTS', 'localhost 127.0.0.1 [::1]').split(' ')
 
 
-INSTALLED_APPS = [
+INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -20,9 +20,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'core',
-]
+)
 
-MIDDLEWARE = [
+MIDDLEWARE = (
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -30,11 +30,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+)
 
 ROOT_URLCONF = 'deals.urls'
 
-TEMPLATES = [
+TEMPLATES = (
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -48,7 +48,7 @@ TEMPLATES = [
             ],
         },
     },
-]
+)
 
 WSGI_APPLICATION = 'deals.wsgi.application'
 
@@ -65,7 +65,7 @@ DATABASES = {
 }
 
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS = (
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -78,7 +78,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
-]
+)
 
 
 LANGUAGE_CODE = 'en-us'
@@ -98,3 +98,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CUSTOMERS_IN_RESPONSE = 5
 CUSTOMER_MAX_LENGTH = 150
 GEM_NAME_MAX_LENGTH = 30
+NUMBER_OF_GEM = 2
