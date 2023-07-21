@@ -1,0 +1,34 @@
+version: '3'
+services:
+  db:
+    image: postgres:15.3-alpine3.18
+    container_name: db
+    env_file: .env
+    restart: always
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}
+      interval: 30s
+      timeout: 3s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 4G
+
+  backend:
+    build: .
+    container_name: deals
+    env_file: .env
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    restart: always
+
+volumes:
+  pg_data:
