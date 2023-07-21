@@ -18,8 +18,8 @@
 - Клонировать репозиторий и перейти в него в командной строке:
 
 ```bash
-https://github.com/sergeev-m/
-cd 
+https://github.com/sergeev-m/deals_drf.git
+cd deals_drf
 ```
 
 - Запустить
